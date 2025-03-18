@@ -60,3 +60,5 @@ export default async function ProductRange() {
     </div>
   );
 }
+
+export const revalidate = 30

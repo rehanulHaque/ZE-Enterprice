@@ -48,7 +48,7 @@ export default async function FeatureProducts() {
           {/* left */}
           <div className="p-8 rounded-xl bg-purple-400 flex items-center justify-center w-full aspect-square">
             <div>
-              <Image alt={item.title} fill src={item.productImage[0].url} className="object-fill h-[250px] md:h-[300px] rounded-xl" />
+              <Image height={250} width={300} alt={item.title} src={item.productImage[0].url} className="object-fill h-[250px] md:h-[300px] rounded-xl" />
             </div>
           </div>
           {/* right */}
@@ -73,3 +73,5 @@ export default async function FeatureProducts() {
     </div>
   );
 }
+
+export const revalidate = 30

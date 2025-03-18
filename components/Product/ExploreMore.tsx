@@ -73,3 +73,5 @@ import {
       </div>
     );
   }
+
+  export const revalidate = 30

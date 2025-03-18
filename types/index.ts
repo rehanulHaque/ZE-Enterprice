@@ -31,3 +31,15 @@ export interface SingleProductTypes {
     ];
   }
 }
+
+export interface CarouselTypes {
+  products: {
+    id: string;
+    productImage: [
+      {
+        url: string;
+      }
+    ];
+    link: string
+  }[]
+}
