@@ -5,9 +5,9 @@ import { HomePageData } from "@/data";
 
 export default function QuickEnquiry() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-5 gap-16 max-w-5xl md:mx-auto mt-10 mx-4">
+    <div className="grid grid-cols-1 md:grid-cols-5 gap-8 max-w-5xl md:mx-auto mt-10 mx-8">
       {/* Left */}
-      <div className="bg-purple-400 md:col-span-2 flex flex-col items-start gap-4 p-4 rounded-xl">
+      <div className="md:col-span-2 flex flex-col items-start gap-4 p-4 rounded-xl bg-white shadow-xl">
         <h1 className="text-2xl font-bold">HOW TO FIND US</h1>
         {HomePageData.details.map(item => (
           <div className="flex gap-4 items-center justify-center" key={item.id}>
@@ -17,7 +17,7 @@ export default function QuickEnquiry() {
         ))}
       </div>
       {/* Right */}
-      <div className="md:col-span-3">
+      <div className="md:col-span-3 bg-white p-4 rounded-xl shadow-xl">
         <div className="grid grid-cols-1 md:mt-4 md:grid-cols-2 gap-6">
           <Input
             placeholder="Product"

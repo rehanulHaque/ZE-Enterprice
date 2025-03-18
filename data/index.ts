@@ -1,4 +1,4 @@
-import { Gem, IndianRupee, Rss, UserRoundCog, Phone, Pin, User,  } from "lucide-react";
+import { Gem, IndianRupee, Rss, UserRoundCog, Phone, Pin, User, Wrench,  } from "lucide-react";
 
 export const HomePageData = {
   mainLogo: {src: "/main_logo.jpg", alt: "Main Logo"},
@@ -36,7 +36,7 @@ export const HomePageData = {
     { id: 1, icon: User, text: "Md Khalid Hussain" },
     { id: 2, icon: Pin, text: "Sakri Address..." },
     { id: 3, icon: Phone, text: "+91 02315647895" },
-    { id: 4, icon: Phone, text: "Chat on Whatsapp", wsLink: "/" },
+    { id: 4, icon: Wrench, text: "Chat on Whatsapp", wsLink: "/"},
   ],
   footerData: [
     {

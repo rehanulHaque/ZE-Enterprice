@@ -46,7 +46,7 @@ export default async function page({
   const data = await getProduct(productId);
   return (
     <section>
-      <div className="mx-4 md:max-w-5xl md:mx-auto  flex flex-col md:flex-row gap-4 items-center justify-center md:justify-evenly mt-8 md:mt-16 bg-purple-400 p-4 rounded-xl shadow-md">
+      <div className="mx-4 md:max-w-5xl md:mx-auto  flex flex-col md:flex-row gap-4 items-center justify-center md:justify-evenly mt-8 md:mt-16 p-4 rounded-xl shadow-md">
         <div>
           <Image
             src={data?.productImage[0].url! || ""}
@@ -99,7 +99,7 @@ export default async function page({
         </div>
       </div>
 
-      <div className="mx-4 md:max-w-5xl md:mx-auto  mt-8 md:mt-16 bg-purple-400 p-4 rounded-xl shadow-md">
+      <div className="mx-4 md:max-w-5xl md:mx-auto  mt-8 md:mt-16 p-4 rounded-xl shadow-md">
         <h1 className="font-bold text-2xl my-2 text-center text-gray-900">
           Looking for {data?.title || ""}?
         </h1>

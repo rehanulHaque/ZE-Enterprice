@@ -5,7 +5,7 @@ import React from "react";
 
 export default function PageFooter() {
   return (
-    <div className="w-full bg-purple-400 mt-4 md:mt-8">
+    <div className="w-full  mt-4 md:mt-8">
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 px-8 py-8">
         <div className="order-last md:order-first">
           <p>

@@ -33,7 +33,7 @@ import {
   export default async function ExploreMore() {
     const data = await getMoreProducts();
     return (
-      <div className="mx-4 md:max-w-5xl md:mx-auto mt-8 md:mt-16 shadow-md bg-purple-400 rounded-xl">
+      <div className="mx-4 md:max-w-5xl md:mx-auto mt-8 md:mt-16 shadow-md rounded-xl">
         <h1 className="font-bold text-2xl my-2 text-center pt-2 text-gray-900">
           Explore More Products
         </h1>

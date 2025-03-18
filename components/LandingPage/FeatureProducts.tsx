@@ -29,14 +29,14 @@ const getFeatureProduct = async() => {
 export default async function FeatureProducts() {
   const data = await getFeatureProduct()
   return (
-    <div className="my-5 md:my-16 bg-white">
-      <div className="py-4 md:py-6 w-full bg-black text-center">
-        <h1 className="text-white text-2xl md:text-4xl font-bold">
-          Feature Product
+    <div className="my-2 md:my-8">
+      <div className="pt-2 md:pt-4 w-full text-center">
+        <h1 className="text-black text-2xl md:text-4xl font-bold">
+          <span className="text-[#5a8ddc]">Feature</span> Product
         </h1>
       </div>
       {/* Main Container */}
-      <div className="mt-8 mx-8 md:max-w-5xl md:mx-auto md:mt-10">
+      <div className="mt-4 mx-8 md:max-w-5xl md:mx-auto md:mt-6">
         {/* Loop */}
         {data.map((item, idx) => (
           <div
