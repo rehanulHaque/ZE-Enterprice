@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
 import PageFooter from "@/components/PageFooter";
 import ExploreMore from "@/components/Product/ExploreMore";
 import { Button } from "@/components/ui/button";
