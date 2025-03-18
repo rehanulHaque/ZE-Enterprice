@@ -1,8 +1,7 @@
-import React from "react";
-import { Button } from "../ui/button";
 import request from "graphql-request";
 import { ProductTypes } from "@/types";
 import OpenModalButton from "../OpenModalButton";
+import Image from "next/image";
 
 const getFeatureProduct = async() => {
   const data = (await request(
@@ -49,7 +48,7 @@ export default async function FeatureProducts() {
           {/* left */}
           <div className="p-8 rounded-xl bg-purple-400 flex items-center justify-center w-full aspect-square">
             <div>
-              <img src={item.productImage[0].url} className="object-fill h-[250px] md:h-[300px] rounded-xl" />
+              <Image alt={item.title} fill src={item.productImage[0].url} className="object-fill h-[250px] md:h-[300px] rounded-xl" />
             </div>
           </div>
           {/* right */}

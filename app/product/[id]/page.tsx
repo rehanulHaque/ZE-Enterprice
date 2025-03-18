@@ -40,6 +40,7 @@ export default async function page({
 }: {
   params: Promise<{ id: string }>;
 }) {
+  /* eslint-disable @typescript-eslint/no-explicit-any */
   const { id: productId } = await params;
   const data = await getProduct(productId);
   return (

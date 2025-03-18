@@ -7,6 +7,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import Image from "next/image";
 
 const ProductEnquiryModal = ({ productId, isOpen, onClose, image }: any) => {
+  /* eslint-disable @typescript-eslint/no-explicit-any */
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");

@@ -1,5 +1,6 @@
 "use client"
 import { ArrowLeft, ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 
@@ -41,22 +42,14 @@ export default function ImageCarousel() {
     setSlideDirection('prev');
     setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
   };
-  
-  const goToSlide = (index: number) => {
-    setSlideDirection(index > currentIndex ? 'next' : 'prev');
-    setCurrentIndex(index);
-  };
-  
-  const togglePlayPause = () => {
-    setIsPlaying(!isPlaying);
-  };
   return (
     <div className="relative w-full md:w-1/2 max-w-3xl mx-auto">
       {/* Main carousel container */}
       <div className="relative overflow-hidden rounded-lg shadow-xl h-64 bg-gray-100">
         {/* Current slide */}
         <div className="h-full w-full">
-          <img 
+          <Image
+            fill 
             src={images[currentIndex].src} 
             alt={images[currentIndex].alt} 
             className={`w-full h-full object-cover absolute transition-transform duration-500 ${
