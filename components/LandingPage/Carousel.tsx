@@ -15,7 +15,7 @@ export default function ImageCarousel() {
     ]
 
     const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying] = useState(true);
   const [slideDirection, setSlideDirection] = useState('next');
   const slideInterval = 3000;
 

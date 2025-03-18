@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import PageFooter from "@/components/PageFooter";
 import ExploreMore from "@/components/Product/ExploreMore";
 import { Button } from "@/components/ui/button";
@@ -40,7 +41,6 @@ export default async function page({
 }: {
   params: Promise<{ id: string }>;
 }) {
-  /* eslint-disable @typescript-eslint/no-explicit-any */
   const { id: productId } = await params;
   const data = await getProduct(productId);
   return (
