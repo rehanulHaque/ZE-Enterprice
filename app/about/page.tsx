@@ -1,3 +1,4 @@
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 import PageFooter from "@/components/PageFooter";
 import ExploreMore from "@/components/Product/ExploreMore";
 import { ProductsNamesTypes } from "@/types";

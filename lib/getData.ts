@@ -1,3 +1,4 @@
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 import { request } from 'graphql-request';
 
 export const getProducts = async (page = 1, itemsPerPage = 12) => {
