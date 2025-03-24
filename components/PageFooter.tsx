@@ -25,7 +25,6 @@ export default function PageFooter() {
           <Link href={"/"}>Home</Link>
           <Link href={"/about"}>About</Link>
           <Link href={"/products"}>Products</Link>
-          {/* <Link href={"/contact"}>Contact us</Link> */}
         </div>
         <div>
                 <Image src={HomePageData.mainLogo.src} alt={HomePageData.mainLogo.alt} height={80} width={80} className="md:hidden rounded-full"/>

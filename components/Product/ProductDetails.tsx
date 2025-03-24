@@ -1,10 +1,9 @@
 "use client";
-import { IndianRupee, LayoutGrid, LayoutList } from "lucide-react";
+import { LayoutGrid, LayoutList } from "lucide-react";
 import React, { useState } from "react";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import Image from "next/image";
-import { Input } from "../ui/input";
 
 interface ProductType {
   id: string;
