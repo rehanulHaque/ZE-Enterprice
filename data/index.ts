@@ -1,11 +1,18 @@
-import { Gem, IndianRupee, Rss, UserRoundCog, Phone, Pin, User, Wrench,  } from "lucide-react";
+import {
+  Gem,
+  IndianRupee,
+  Rss,
+  UserRoundCog,
+  Pin,
+  User,
+} from "lucide-react";
 
 export const HomePageData = {
-  mainLogo: {src: "/main_logo.jpg", alt: "Main Logo"},
+  mainLogo: { src: "/main_logo.jpg", alt: "Main Logo" },
   heroTitle:
     "Your Trusted Partner for Premium Bulk Products at Unbeatable Prices!",
   heroSubtitle:
-    "Welcome to ZE Enterprise – Your Go-To Source for Premium Bulk Products! We specialize in high-quality leather belts, mobile stands, jackets, cups, and more – perfect for retailers, wholesalers, and businesses.",
+    "Welcome to ZE Enterprise, your go-to source for premium bulk products and expert business services. We offer high-quality leather goods, mobile stands, jackets, cups, and more, along with digital marketing, event management, and consultancy services to help businesses grow. Whether you need bulk supplies or strategic solutions, we’ve got you covered!",
   whyChooseUs: [
     {
       id: 1,
@@ -22,21 +29,21 @@ export const HomePageData = {
     {
       id: 3,
       icon: Rss,
-      title: "Wide Range of Products",
-      desc: "From leather goods to essentials, we've got it all.",
+      title: "Wide Product & Service Range",
+      desc: "From leather goods to marketing, events, and consultancy—we've got you covered!",
     },
     {
       id: 4,
       icon: UserRoundCog,
-      title: "Reliable Service",
-      desc: "Fast shipping and reliable support",
+      title: "Business Growth Solutions",
+      desc: "Our consultancy and marketing services drive business growth.",
     },
   ],
   details: [
     { id: 1, icon: User, text: "Md Khalid Hussain" },
-    { id: 2, icon: Pin, text: "Sakri Address..." },
-    { id: 3, icon: Phone, text: "+91 02315647895" },
-    { id: 4, icon: Wrench, text: "Chat on Whatsapp", wsLink: "/"},
+    { id: 2, icon: Pin, text: "Sakri" },
+    // { id: 3, icon: Phone, text: "+91 8603171076" },
+    // { id: 4, icon: Wrench, text: "Chat on Whatsapp", wsLink: "/"},
   ],
   footerData: [
     {
@@ -45,20 +52,19 @@ export const HomePageData = {
       links: [
         { id: 1, title: "Home", href: "/" },
         { id: 2, title: "Products", href: "/products" },
-        { id: 3, title: "Feature", href: "/features" },
+        { id: 3, title: "Services", href: "/services" },
         { id: 4, title: "About Us", href: "/about" },
-        { id: 5, title: "Contact us", href: "/contact" },
       ],
     },
     {
       id: 2,
       title: "Products",
       links: [
-        { id: 1, title: "Bags", href: "/" },
-        { id: 2, title: "Cups", href: "/" },
-        { id: 3, title: "Belts", href: "/" },
-        { id: 4, title: "Calender", href: "/" },
-        { id: 5, title: "Pen Holder", href: "/" },
+        { id: 1, title: "Bags", href: "/products" },
+        { id: 2, title: "Cups", href: "/products" },
+        { id: 3, title: "Belts", href: "/products" },
+        { id: 4, title: "Calender", href: "/products" },
+        { id: 5, title: "Pen Holder", href: "/products" },
       ],
     },
   ],

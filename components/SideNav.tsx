@@ -16,11 +16,11 @@ export default function SideNav() {
       </div>
 
       {/* OPTIONS ITEM */}
-      <div className={`${open ? 'block' : 'hidden'} text-left p-4 flex flex-col gap-2 h-full bg-white`}>
+      <div className={`${open ? 'block' : 'hidden'} text-left p-4 flex flex-col gap-2 h-full bg-[#f3f3f3]`}>
         <Link href="/" className='hover:text-blue-500 transition-all hover:scale-110'>Home</Link>
         <Link href="/products" className='hover:text-blue-500 transition-all hover:scale-110'>Products</Link>
+        <Link href="/services" className='hover:text-blue-500 transition-all hover:scale-110'>Services</Link>
         <Link href="/about" className='hover:text-blue-500 transition-all hover:scale-110'>About</Link>
-        <Link href="/contact" className='hover:text-blue-500 transition-all hover:scale-110'>Contact</Link>
       </div>
     </div>
   )

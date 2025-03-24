@@ -5,7 +5,7 @@ import { HomePageData } from '@/data'
 
 export default function Navbar() {
   return (
-    <header className='shadow-md bg-white'>
+    <header className='shadow-md bg-[#f3f3f3]'>
         <nav className='flex justify-between items-center px-4 py-2 relative'>
             {/* TOP */}
             <div>

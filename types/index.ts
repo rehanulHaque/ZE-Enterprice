@@ -29,7 +29,7 @@ export interface SingleProductTypes {
         url: string;
       }
     ];
-  }
+  };
 }
 
 export interface CarouselTypes {
@@ -40,6 +40,27 @@ export interface CarouselTypes {
         url: string;
       }
     ];
-    link: string
-  }[]
+    link: string;
+  }[];
+}
+
+export interface ProductsNamesTypes {
+  products: {
+    id: string;
+    title: string;
+    link: string;
+  }[];
+}
+
+export interface ProductType {
+  products: {
+    id: string;
+    title: string;
+    description: string;
+    price: number;
+    link: string;
+    productImage: {
+      url: string;
+    }[];
+  };
 }

@@ -33,9 +33,9 @@ import {
   export default async function ExploreMore() {
     const data = await getMoreProducts();
     return (
-      <div className="mx-4 md:max-w-5xl md:mx-auto mt-8 md:mt-16 shadow-md rounded-xl">
+      <div className="mx-4 md:max-w-5xl md:mx-auto mt-8 md:mt-16 shadow-md rounded-xl bg-[#f3f3f3]">
         <h1 className="font-bold text-2xl my-2 text-center pt-2 text-gray-900">
-          Explore More Products
+          Explore More <span className="text-[#5a8ddc]" >Products</span>
         </h1>
   
         <div className="relative px-8 py-4 shadow-md"> {/* Add padding for arrows */}
@@ -50,7 +50,7 @@ import {
               {data.map((item) => (
                 <CarouselItem
                   key={item.id}
-                  className="basis-full md:basis-1/2 lg:basis-1/3 bg-white" // 1 item on mobile, 2 on tablet, 3 on desktop
+                  className="basis-full md:basis-1/2 lg:basis-1/3 bg-[#f3f3f3]" // 1 item on mobile, 2 on tablet, 3 on desktop
                 >
                   <Link href={`product/${item.link}`}>
                     <Image
@@ -60,14 +60,14 @@ import {
                       width={200}
                       className="w-full h-auto shadow-md"
                     />
-                    <h2 className="text-lg font-semibold my-2 text-center ">{item.title}</h2>
+                    <h2 className="text-lg font-semibold py-2 text-center bg-[#dee8f8]">{item.title}</h2>
                   </Link>
                 </CarouselItem>
               ))}
             </CarouselContent>
             {/* Arrows */}
-            <CarouselPrevious className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8" />
-            <CarouselNext className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-8" />
+            <CarouselPrevious className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8 bg-[#5a8ddc]" />
+            <CarouselNext className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-8 bg-[#5a8ddc]" />
           </Carousel>
         </div>
       </div>

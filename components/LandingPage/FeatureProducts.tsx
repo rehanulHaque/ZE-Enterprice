@@ -46,14 +46,14 @@ export default async function FeatureProducts() {
            key={item.id}
         >
           {/* left */}
-          <div className="p-8 rounded-xl bg-purple-400 flex items-center justify-center w-full aspect-square">
+          <div className="p-8 rounded-xl bg-[#dee8f8] flex items-center justify-center w-full">
             <div>
               <Image height={250} width={300} alt={item.title} src={item.productImage[0].url} className="object-fill h-[250px] md:h-[300px] rounded-xl" />
             </div>
           </div>
           {/* right */}
-          <div className="p-8 rounded-xl bg-purple-400 flex items-center justify-center w-full text-left aspect-square">
-            <div className="space-y-1 bg-white p-4 md:p-8 h-[250px] md:h-[300px] rounded-xl">
+          <div className="p-8 rounded-xl bg-[#dee8f8] flex items-center justify-center w-full text-left aspect-square">
+            <div className="space-y-1 bg-[#f3f3f3] p-4 md:p-8 h-[250px] md:h-[300px] rounded-xl">
               <h1 className="font-bold text-2xl">{item.title} <div className="w-fit h-0.5 bg-black mb-1"></div></h1>
               <p>
                 <b>Material</b>: {item.material}

@@ -24,11 +24,11 @@ const getMoreProducts = async () => {
 export default async function HeroSection() {
   const data = await getMoreProducts();
   return (
-    <div className="svg-background flex md:justify-between flex-col md:flex-row md:items-center gap-8 px-8 md:px-28 py-4 pb-2 md:py-28 md:pb-16">
+    <div className="flex md:justify-between flex-col md:flex-row md:items-center gap-8 px-8 md:px-28 py-4 pb-2 md:py-28 md:pb-16">
       <div className="w-full md:w-1/2">
         <h1 className="font-bold mt-8 sm:mt-12 text-xl sm:text-3xl w-full md:max-w-3xl mx-auto">
           <span className="text-[#5a8ddc]">Your Trusted Partner</span> for
-          Premium Bulk Products at <span className="text-[#5a8ddc]">Unbeatable Prices!</span>
+          Premium Bulk Products <span className="text-[#5a8ddc]">& Business Solutions</span>
         </h1>
         <p className="mt-3">{HomePageData.heroSubtitle}</p>
       </div>
@@ -38,3 +38,4 @@ export default async function HeroSection() {
 }
 
 export const revalidate = 30;
+// Your Trusted Partner for Bulk Products & Business Solutions

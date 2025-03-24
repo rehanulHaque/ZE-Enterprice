@@ -8,7 +8,7 @@ const getProductData = async () => {
     process.env.HYGRAPH_API_KEY!,
     `
     query getProducts {
-      products {
+      products(first: 9) {
         id
         title
         link
@@ -35,7 +35,7 @@ export default async function ProductRange() {
       <div className="grid grid-cols-1 md:grid-cols-3 mx-8 gap-4 mt-4 md:mt-8 md:gap-8 md:max-w-5xl md:mx-auto">
         {products.map((product) => (
           <div
-            className="overflow-hidden shadow-xl bg-white"
+            className="overflow-hidden shadow-xl bg-[#f3f3f3]"
             key={product.id}
           >
             <Link

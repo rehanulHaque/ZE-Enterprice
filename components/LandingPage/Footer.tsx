@@ -5,7 +5,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <div className="py-8 mt-8 w-full bg-[#5a8ddc]">
+    <div className="py-8 mt-8 w-full bg-[#dee8f8]">
       <div className="flex flex-col md:justify-between items-center gap-8 md:gap-0 w-full md:max-w-5xl mx-auto ">
         <div>
           <Image

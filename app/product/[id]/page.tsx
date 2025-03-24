@@ -46,7 +46,7 @@ export default async function page({
   const data = await getProduct(productId);
   return (
     <section>
-      <div className="mx-4 md:max-w-5xl md:mx-auto  flex flex-col md:flex-row gap-4 items-center justify-center md:justify-evenly mt-8 md:mt-16 p-4 rounded-xl shadow-md">
+      <div className="mx-4 md:max-w-5xl md:mx-auto  flex flex-col md:flex-row gap-4 items-center justify-center md:justify-evenly mt-8 md:mt-16 p-4 rounded-xl shadow-md bg-[#f3f3f3]">
         <div>
           <Image
             src={data?.productImage[0].url! || ""}
@@ -99,21 +99,27 @@ export default async function page({
         </div>
       </div>
 
-      <div className="mx-4 md:max-w-5xl md:mx-auto  mt-8 md:mt-16 p-4 rounded-xl shadow-md">
+      <div className="mx-4 md:max-w-5xl md:mx-auto  mt-8 md:mt-16 p-4 rounded-xl shadow-md bg-[#f3f3f3]">
         <h1 className="font-bold text-2xl my-2 text-center text-gray-900">
-          Looking for {data?.title || ""}?
+          Looking for <span className="text-[#dee8f8]">{data?.title || ""}?</span>
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
           <div>
-            <label htmlFor="name" className="text-sm">Name</label>
+            <label htmlFor="name" className="text-sm">
+              Name
+            </label>
             <Input placeholder="Name" id="name" className="bg-white" />
           </div>
           <div>
-            <label htmlFor="email" className="text-sm">Email</label>
+            <label htmlFor="email" className="text-sm">
+              Email
+            </label>
             <Input placeholder="Email" id="email" className="bg-white" />
           </div>
           <div>
-            <label htmlFor="mobileNumber" className="text-sm">Mobile Number</label>
+            <label htmlFor="mobileNumber" className="text-sm">
+              Mobile Number
+            </label>
             <Input
               placeholder="Mobile Number"
               id="mobileNumber"
@@ -121,7 +127,9 @@ export default async function page({
             />
           </div>
           <div>
-            <label htmlFor="quantityPrice" className="text-sm">Quantity</label>
+            <label htmlFor="quantityPrice" className="text-sm">
+              Quantity
+            </label>
             <div className="flex gap-4">
               <Input
                 placeholder="Quantity"
@@ -136,7 +144,9 @@ export default async function page({
             </div>
           </div>
           <div className="col-span-1 md:col-span-2">
-            <label htmlFor="requirements" className="text-sm">Requirements Details</label>
+            <label htmlFor="requirements" className="text-sm">
+              Requirements Details
+            </label>
             <Textarea
               id="requirements"
               placeholder="Requirements Details"
@@ -147,10 +157,10 @@ export default async function page({
         </div>
       </div>
 
-      <ExploreMore/>
-      <PageFooter/>
+      <ExploreMore />
+      <PageFooter />
     </section>
   );
 }
 
-export const revalidate = 30
+export const revalidate = 30;
