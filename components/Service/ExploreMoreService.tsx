@@ -5,7 +5,7 @@ import {
     CarouselNext,
     CarouselPrevious,
   } from "@/components/ui/carousel";
-  import { ProductTypes, ServicesTypes } from "@/types";
+  import { ServicesTypes } from "@/types";
   import request from "graphql-request";
   import Image from "next/image";
   import Link from "next/link";
