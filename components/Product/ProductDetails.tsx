@@ -56,7 +56,7 @@ export default function ProductDetails(data: { data: ProductType[] }) {
               key={product.id}
             >
               <Link
-                href={`/product/${product.link}`}
+                href={`/products/${product.link}`}
                 className={`shadow-2xl items-center  border border-gray-300 grid ${
                   layout === "grid" ? "md:grid-cols-1 gap-2" : "md:grid-cols-4"
                 }`}
@@ -83,12 +83,12 @@ export default function ProductDetails(data: { data: ProductType[] }) {
                   ) : (
                     <p className="text-gray-700">{product.description}</p>
                   )}
-                  <div className="flex gap-4">
+                  {/* <div className="flex gap-4">
                     <p className="hidden md:blockline-through text-gray-700">
                       {product.price + 20}
                     </p>
                     <p>{product.price}</p>
-                  </div>
+                  </div> */}
                 </div>
               </Link>
             </div>

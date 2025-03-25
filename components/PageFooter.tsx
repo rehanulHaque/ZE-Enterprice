@@ -1,7 +1,6 @@
 import { HomePageData } from "@/data";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
 export default function PageFooter() {
   return (
@@ -20,15 +19,21 @@ export default function PageFooter() {
           </p>
         </div>
         <div className="flex justify-between items-center">
-            
-        <div className="grid grid-cols-1 md:grid-cols-4 order-first md:order-last">
-          <Link href={"/"}>Home</Link>
-          <Link href={"/about"}>About</Link>
-          <Link href={"/products"}>Products</Link>
-        </div>
-        <div>
-                <Image src={HomePageData.mainLogo.src} alt={HomePageData.mainLogo.alt} height={80} width={80} className="md:hidden rounded-full"/>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-4 order-first md:order-last">
+            <Link href={"/"}>Home</Link>
+            <Link href={"/about"}>About</Link>
+            <Link href={"/products"} className="mr-2">Products</Link>
+            <Link href={"/services"}>Services</Link>
+          </div>
+          <div>
+            <Image
+              src={HomePageData.mainLogo.src}
+              alt={HomePageData.mainLogo.alt}
+              height={80}
+              width={80}
+              className="md:hidden rounded-full"
+            />
+          </div>
         </div>
       </div>
     </div>

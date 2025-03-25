@@ -1,7 +1,7 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 import PageFooter from "@/components/PageFooter";
 import ExploreMore from "@/components/Product/ExploreMore";
-import { ProductsNamesTypes } from "@/types";
+import { ProductsNamesTypes, ServicesTypes } from "@/types";
 import request from "graphql-request";
 import Link from "next/link";
 import React from "react";
@@ -24,9 +24,29 @@ const getProductNames = async () => {
     console.log(error.message);
   }
 };
+const getServiceNames = async () => {
+  try {
+    const data = (await request(
+      process.env.HYGRAPH_API_KEY!,
+      `
+      query MyQuery {
+  services(first: 4) {
+    id
+    link
+    title
+  }
+}
+      `
+    )) as ServicesTypes;
+    return data.services;
+  } catch (error: any) {
+    console.log(error.message);
+  }
+};
 
 export default async function page() {
-  const data = await getProductNames();
+  const productData = await getProductNames();
+  const servicesData = await getServiceNames();
   return (
     <section className="">
       <div className="grid grid-cols-1 md:grid-cols-6 gap-4 h-full w-full md:max-w-5xl md:mx-auto">
@@ -122,9 +142,21 @@ export default async function page() {
           <div className="border border-gray-500 p-2 bg-[#f3f3f3]">
             <h1 className="text-[#5a8ddc]">Products</h1>
             <div className="flex flex-col gap-3">
-              {data?.map((item) => (
+              {productData?.map((item) => (
                 <div key={item.id} className="border border-b-gray-500">
-                  <Link href={`/product/${item.link}`} className="">
+                  <Link href={`/products/${item.link}`} className="">
+                    {item.title}
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="border border-gray-500 p-2 bg-[#f3f3f3] mt-4">
+            <h1 className="text-[#5a8ddc]">Services</h1>
+            <div className="flex flex-col gap-3">
+              {servicesData?.map((item) => (
+                <div key={item.id} className="border border-b-gray-500">
+                  <Link href={`/products/${item.link}`} className="">
                     {item.title}
                   </Link>
                 </div>

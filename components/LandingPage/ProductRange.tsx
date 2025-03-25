@@ -39,7 +39,7 @@ export default async function ProductRange() {
             key={product.id}
           >
             <Link
-              href={`/product/${product.link}`}
+              href={`/products/${product.link}`}
               className="flex flex-col shadow-2xl items-center gap-2 border border-gray-300"
             >
               <Image

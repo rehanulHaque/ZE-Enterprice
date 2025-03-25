@@ -8,11 +8,10 @@ const getFeatureProduct = async() => {
       process.env.HYGRAPH_API_KEY!,
       `
       query getProducts {
-         products(first: 4) {
+         products(first: 2) {
           id
           title
           description
-          price
           link
           productImage {
             url

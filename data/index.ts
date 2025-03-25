@@ -62,7 +62,6 @@ export const HomePageData = {
       links: [
         { id: 1, title: "Bags", href: "/products" },
         { id: 2, title: "Cups", href: "/products" },
-        { id: 3, title: "Belts", href: "/products" },
         { id: 4, title: "Calender", href: "/products" },
         { id: 5, title: "Pen Holder", href: "/products" },
       ],

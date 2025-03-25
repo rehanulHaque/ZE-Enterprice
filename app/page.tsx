@@ -5,6 +5,7 @@ import ProductRange from "@/components/LandingPage/ProductRange";
 import QuickEnquiry from "@/components/LandingPage/QuickEnquiry";
 import React from "react";
 import HeroSection from "@/components/LandingPage/HeroSection";
+import OurServices from "@/components/LandingPage/OurServices";
 
 export default function page() {
   return (
@@ -13,6 +14,7 @@ export default function page() {
       <AboutMain />
       <ProductRange />
       <FeatureProducts />
+      <OurServices/>
       <QuickEnquiry />
       <Footer />
     </section>

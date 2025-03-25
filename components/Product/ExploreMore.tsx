@@ -18,7 +18,6 @@ import {
            products(first: 8) {
             id
             title
-            price
             link
             productImage {
               url
@@ -52,7 +51,7 @@ import {
                   key={item.id}
                   className="basis-full md:basis-1/2 lg:basis-1/3 bg-[#f3f3f3]" // 1 item on mobile, 2 on tablet, 3 on desktop
                 >
-                  <Link href={`product/${item.link}`}>
+                  <Link href={`/products/${item.link}`}>
                     <Image
                       src={item.productImage[0].url}
                       alt={item.title}

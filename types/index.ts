@@ -64,3 +64,32 @@ export interface ProductType {
     }[];
   };
 }
+
+export interface ServicesTypes {
+  services: {
+    description: string;
+    details: {
+      raw: any;
+    };
+    id: string;
+    title: string;
+    link: string;
+    serviceImage: {
+      url: string;
+    };
+  }[];
+}
+export interface ServicesSingleTypes {
+  services: {
+    description: string;
+    details: {
+      raw: any;
+    };
+    id: string;
+    title: string;
+    link: string;
+    serviceImage: {
+      url: string;
+    };
+  }
+}
