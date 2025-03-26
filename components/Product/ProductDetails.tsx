@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import Image from "next/image";
+import { Card, CardContent } from "../ui/card";
 
 interface ProductType {
   id: string;
@@ -44,23 +45,21 @@ export default function ProductDetails(data: { data: ProductType[] }) {
           <h1 className="text-2xl font-bold text-[#5a8ddc]">Products</h1>
         </div>
       </div>
-      <div>
+      <div className="mt-4">
         <div
           className={`grid grid-cols-1 ${
             layout === "grid" ? "md:grid-cols-3" : "md:grid-cols-1 "
           } gap-4 mt-4 m-4 md:m-0`}
         >
           {data.data.map((product) => (
-            <div
-              className="overflow-hidden shadow-xl bg-[#f3f3f3]"
-              key={product.id}
-            >
-              <Link
+            <Card key={product.id}>
+            <Link
                 href={`/products/${product.link}`}
-                className={`shadow-2xl items-center  border border-gray-300 grid ${
-                  layout === "grid" ? "md:grid-cols-1 gap-2" : "md:grid-cols-4"
-                }`}
               >
+              <CardContent>
+                <div className={`items-center grid ${
+                  layout === "grid" ? "md:grid-cols-1 gap-2" : "md:grid-cols-4"
+                }`}>
                 <Image
                   src={product.productImage[0].url}
                   width={200}
@@ -70,7 +69,7 @@ export default function ProductDetails(data: { data: ProductType[] }) {
                     layout === "grid" ? "" : "md:col-span-1"
                   }`}
                 />
-                <div
+                  <div
                   className={`w-full px-4 mb-3 ${
                     layout === "grid" ? "" : "md:col-span-3"
                   }`}
@@ -83,15 +82,11 @@ export default function ProductDetails(data: { data: ProductType[] }) {
                   ) : (
                     <p className="text-gray-700">{product.description}</p>
                   )}
-                  {/* <div className="flex gap-4">
-                    <p className="hidden md:blockline-through text-gray-700">
-                      {product.price + 20}
-                    </p>
-                    <p>{product.price}</p>
-                  </div> */}
                 </div>
-              </Link>
-            </div>
+                </div>
+              </CardContent>
+            </Link>
+          </Card>
           ))}
         </div>
       </div>

@@ -1,28 +1,11 @@
 import React from "react";
 import ImageCarousel from "./Carousel";
 import { HomePageData } from "@/data";
-import request from "graphql-request";
-import { CarouselTypes } from "@/types";
+import { getProductsForCarousel } from "@/lib/getData";
 
-const getMoreProducts = async () => {
-  const data = (await request(
-    process.env.HYGRAPH_API_KEY!,
-    `
-        query getProducts {
-           products(first: 8) {
-            id
-            productImage {
-              url
-            }
-          }
-        }
-        `
-  )) as CarouselTypes;
-  return data.products;
-};
 
 export default async function HeroSection() {
-  const data = await getMoreProducts();
+  const data = await getProductsForCarousel();
   return (
     <div className="flex md:justify-between flex-col md:flex-row md:items-center gap-8 px-8 md:px-28 py-4 pb-2 md:py-28 md:pb-16">
       <div className="w-full md:w-1/2">
@@ -38,4 +21,3 @@ export default async function HeroSection() {
 }
 
 export const revalidate = 30;
-// Your Trusted Partner for Bulk Products & Business Solutions

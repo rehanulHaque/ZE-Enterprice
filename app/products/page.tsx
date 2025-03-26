@@ -12,7 +12,7 @@ export default async function page({searchParams}: {searchParams: Promise<{page:
   const totalPages = Math.ceil(totalCount / itemsPerPage);
 
   return (
-    <section className="">
+    <section>
       <div className="w-full md:max-w-5xl md:mx-auto py-4">
         {products && <ProductDetails data={products} />}
         <Pagination 

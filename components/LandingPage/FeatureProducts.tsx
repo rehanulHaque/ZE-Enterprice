@@ -1,29 +1,6 @@
-import request from "graphql-request";
-import { ProductTypes } from "@/types";
 import OpenModalButton from "../OpenModalButton";
 import Image from "next/image";
-
-const getFeatureProduct = async() => {
-  const data = (await request(
-      process.env.HYGRAPH_API_KEY!,
-      `
-      query getProducts {
-         products(first: 2) {
-          id
-          title
-          description
-          link
-          productImage {
-            url
-          }
-          material
-          feature
-        }
-      }
-      `
-    )) as ProductTypes
-    return data.products
-}
+import { getFeatureProduct } from "@/lib/getData";
 
 export default async function FeatureProducts() {
   const data = await getFeatureProduct()

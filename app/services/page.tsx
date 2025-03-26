@@ -1,42 +1,11 @@
 import PageFooter from "@/components/PageFooter";
-import { Card, CardContent } from "@/components/ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 import { serviceData } from "@/data/service";
-import { ServicesTypes } from "@/types";
-import request from "graphql-request";
 import Image from "next/image";
 import { RichText } from "@graphcms/rich-text-react-renderer";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-
-const getServiceDetails = async () => {
-  const data = (await request(
-    process.env.HYGRAPH_API_KEY!,
-    `
-    query MyQuery {
-  services(first: 6) {
-    description
-    details {
-      raw
-    }
-    id
-    link
-    title
-    serviceImage {
-      url
-    }
-  }
-}
-    `
-  )) as ServicesTypes;
-  return data.services;
-};
+import { getServiceDetails } from "@/lib/getData";
+import Testamonial from '@/components/Services/Testamonial'
 
 export default async function page() {
   const data = await getServiceDetails();
@@ -115,7 +84,7 @@ export default async function page() {
           </div>
           <div className="mt-4 md:mt-8 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
             {lastTwo.map((item) => (
-              <Link href={`/services/${item.id}`} key={item.id}>
+              <Link href={`/services/${item.link}`} key={item.id}>
               <div
                 className="p-4 shadow-xl bg-[#f3f3f3] rounded-xl"
                 >
@@ -139,54 +108,7 @@ export default async function page() {
             ))}
           </div>
         </div>
-
-        <div>
-          <div className="text-center mt-4 md:mt-8">
-            <h1 className="text-2xl md:text-4xl font-bold text-[#5a8ddc]">
-              Testamonials
-            </h1>
-          </div>
-          <div className="mt-4 md:mt-8">
-            <Carousel
-              opts={{
-                align: "start",
-                loop: true,
-              }}
-              className="w-full"
-            >
-              <CarouselContent>
-                {serviceData.testamonial.map((testimonial) => (
-                  <CarouselItem
-                    key={testimonial.id}
-                    className="md:basis-1/2 lg:basis-1/3"
-                  >
-                    <Card className="h-full">
-                      <CardContent className="flex flex-col justify-between p-6 h-full">
-                        <div>
-                          <p className="text-gray-600 mb-4 italic">
-                            "{testimonial.text}"
-                          </p>
-                        </div>
-                        <div className="mt-4">
-                          <h3 className="font-semibold text-lg">
-                            {testimonial.username}
-                          </h3>
-                          <p className="text-gray-500">
-                            {testimonial.companyName}
-                          </p>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="hidden md:flex" />
-              <CarouselNext className="hidden md:flex" />
-            </Carousel>
-          </div>
-        </div>
-
-
+        <Testamonial/>
       </div>
       <PageFooter />
     </section>

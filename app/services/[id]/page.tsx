@@ -1,35 +1,13 @@
+import ServiceContact from "@/components/Forms/ServiceContact";
 import PageFooter from "@/components/PageFooter";
-import ExploreMoreService from "@/components/Service/ExploreMoreService";
+import ServiceCarousel from "@/components/ServiceCarousel";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { ServicesTypes } from "@/types";
+import { getServicesForCarousel, getSingleService } from "@/lib/getData";
 import { RichText } from "@graphcms/rich-text-react-renderer";
-import request from "graphql-request";
 import Image from "next/image";
 
-const getSingleService = async (id: string) => {
-  const data = (await request(
-    process.env.HYGRAPH_API_KEY!,
-    `
-    query MyQuery {
-      services(where: {link: "${id}"}) {
-        description
-          details {
-            raw
-          }
-        id
-        link
-        title
-        serviceImage {
-          url
-        }
-      }
-    }
-    `
-  )) as ServicesTypes;
-  return data.services[0];
-};
 
 export default async function page({
   params,
@@ -38,6 +16,7 @@ export default async function page({
 }) {
   const { id: serviceId } = await params;
   const data = await getSingleService(serviceId);
+  const moreService = await getServicesForCarousel()
   return (
     <section>
       <div className="mx-4 md:max-w-5xl md:mx-auto">
@@ -52,10 +31,10 @@ export default async function page({
             />
           </div>
           <div className="flex flex-col gap-4">
-            <div className="flex justify-start items-center gap-4">
+            <form className="flex justify-start items-center gap-4">
               <Input placeholder="Message us" className="bg-white" />
-              <Button>Contact us</Button>
-            </div>
+              <Button type="submit">Contact us</Button>
+            </form>
             <div>
               <h1 className="font-bold text-2xl my-2">{data?.title || ""}</h1>
               <div className="overflow-x-auto">
@@ -87,62 +66,16 @@ export default async function page({
           <h1 className="font-bold text-2xl my-2 text-center text-[#5a8ddc]">
             Contact us
           </h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
-            <div>
-              <label htmlFor="name" className="text-sm">
-                Name
-              </label>
-              <Input placeholder="Name" id="name" className="bg-white" />
-            </div>
-            <div>
-              <label htmlFor="email" className="text-sm">
-                Email
-              </label>
-              <Input placeholder="Email" id="email" className="bg-white" />
-            </div>
-            <div>
-              <label htmlFor="mobileNumber" className="text-sm">
-                Mobile Number
-              </label>
-              <Input
-                placeholder="Mobile Number"
-                id="mobileNumber"
-                className="bg-white"
-              />
-            </div>
-            <div>
-              <label htmlFor="quantityPrice" className="text-sm">
-                Service
-              </label>
-              <Input placeholder="Service" list="serviceList" className="" />
-              <datalist id="serviceList">
-                <option value="digital marketing">Digital Marketing</option>
-                <option value="Event Management">Event Management</option>
-                <option value="Business Consultancy">
-                  Business Consultancy
-                </option>
-                <option value="Web Development">Web Development</option>
-                <option value="Embroidery">Embroidery</option>
-                <option value="Haj and Umrah">Haj & Umrah</option>
-                <option value="other">Other</option>
-              </datalist>
-            </div>
-            <div className="col-span-1 md:col-span-2">
-              <label htmlFor="requirements" className="text-sm">
-                Details
-              </label>
-              <Textarea
-                id="requirements"
-                placeholder="Details"
-                className="bg-white"
-              />
-            </div>
-            <Button className="md:col-span-2">Send Enquiry</Button>
-          </div>
+          <ServiceContact/>
         </div>
-        <ExploreMoreService/>
+        <div>
+          <h1 className="font-bold text-2xl my-2 text-center pt-2 text-gray-900">
+            Explore More <span className="text-[#5a8ddc]">Services</span>
+          </h1>
+        </div>
+        <ServiceCarousel data={moreService} />
       </div>
-        <PageFooter/>
+      <PageFooter />
     </section>
   );
 }
