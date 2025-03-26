@@ -1,4 +1,3 @@
-/* eslint-disable  @typescript-eslint/no-explicit-any */
 import PageFooter from "@/components/PageFooter";
 import ProductCarousel from "@/components/ProductCarousel";
 import Table from "@/components/Table";

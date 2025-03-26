@@ -5,10 +5,8 @@ import PageFooter from "@/components/PageFooter";
 import ProductCarousel from "@/components/ProductCarousel";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { getProductsForCarousel, getSingleProduct } from "@/lib/getData";
 import Image from "next/image";
-import React from "react";
 
 export default async function page({
   params,
