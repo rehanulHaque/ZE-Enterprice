@@ -1,10 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
 import ProductContact from "@/components/Forms/ProductContact";
+import QuickEnquiryForm from "@/components/Forms/QuickEnquiryForm";
 import PageFooter from "@/components/PageFooter";
 import ProductCarousel from "@/components/ProductCarousel";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { getProductsForCarousel, getSingleProduct } from "@/lib/getData";
 import Image from "next/image";
 
@@ -28,13 +27,7 @@ export default async function page({
           />
         </div>
         <div className="flex flex-col gap-4">
-          <form className="flex justify-start items-center gap-4">
-            <Input
-              placeholder="Quantity"
-              className="flex flex-col md:flex-row md:justify-start md:items-center gap-4"
-            />
-            <Button type="submit">Get Best price</Button>
-          </form>
+          <QuickEnquiryForm id={data?.id} type="product"/>
           <div>
             <h1 className="font-bold text-2xl my-2">{data?.title || ""}</h1>
             <div className="overflow-x-auto">

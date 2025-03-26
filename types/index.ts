@@ -100,7 +100,6 @@ export interface ServicesNamesTypes {
   }[];
 }
 
-
 export interface ServiceType {
   title: string;
   serviceImage: {
@@ -112,10 +111,26 @@ export interface ServiceType {
 
 export interface ProductType {
   title: string;
-  productImage: [{
-    url: string;
-  }];
+  productImage: [
+    {
+      url: string;
+    }
+  ];
   link: string;
   id: string;
   description?: string;
+}
+
+export interface ProductsNamesAndIds {
+  products: {
+    id: string;
+    title: string;
+  }[];
+}
+
+export interface ServicesNamesAndIds {
+  services: {
+    id: string;
+    title: string;
+  }[];
 }

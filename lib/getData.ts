@@ -1,5 +1,5 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
-import { CarouselProductTypes, CarouselServiceTypes, ProductNamesTypes, ProductTypes, ServicesNamesTypes, ServicesTypes, SingleProductTypes } from '@/types';
+import { CarouselProductTypes, CarouselServiceTypes, ProductNamesTypes, ProductsNamesAndIds, ProductTypes, ServicesNamesAndIds, ServicesNamesTypes, ServicesTypes, SingleProductTypes } from '@/types';
 import { request } from 'graphql-request';
 
 export const getProducts = async (page = 1, itemsPerPage = 12) => {
@@ -158,6 +158,20 @@ export  const getFeatureProduct = async() => {
     return data.products;
   };
 
+  export const getProductNameAndId = async () => {
+    const data = (await request(
+      process.env.HYGRAPH_API_KEY!,
+      `
+      query getProducts {
+        products {
+          id
+          title
+        }
+      }
+      `
+    )) as ProductsNamesAndIds;
+    return data.products;
+  };
 
   // Services----------------------------------------------------
   export const getServicesNames = async () => {
@@ -238,5 +252,21 @@ export  const getServiceDetails = async () => {
   }
       `
     )) as ServicesTypes;
+    return data.services;
+  };
+
+
+  export const getServicesNameAndId = async () => {
+    const data = (await request(
+      process.env.HYGRAPH_API_KEY!,
+      `
+      query getServices {
+        services {
+          id
+          title
+        }
+      }
+      `
+    )) as ServicesNamesAndIds;
     return data.services;
   };

@@ -7,7 +7,7 @@ import React from "react";
 import HeroSection from "@/components/LandingPage/HeroSection";
 import OurServices from "@/components/LandingPage/OurServices";
 
-export default function page() {
+export default async function page() {
   return (
     <section>
       <HeroSection/>

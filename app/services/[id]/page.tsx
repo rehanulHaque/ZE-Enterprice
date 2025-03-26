@@ -1,9 +1,8 @@
+import QuickEnquiryForm from "@/components/Forms/QuickEnquiryForm";
 import ServiceContact from "@/components/Forms/ServiceContact";
 import PageFooter from "@/components/PageFooter";
 import ServiceCarousel from "@/components/ServiceCarousel";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { getServicesForCarousel, getSingleService } from "@/lib/getData";
+import { getServicesForCarousel, getServicesNameAndId, getSingleService } from "@/lib/getData";
 import { RichText } from "@graphcms/rich-text-react-renderer";
 import Image from "next/image";
 
@@ -16,6 +15,7 @@ export default async function page({
   const { id: serviceId } = await params;
   const data = await getSingleService(serviceId);
   const moreService = await getServicesForCarousel()
+  const serviceNames = await getServicesNameAndId()
   return (
     <section>
       <div className="mx-4 md:max-w-5xl md:mx-auto">
@@ -30,10 +30,7 @@ export default async function page({
             />
           </div>
           <div className="flex flex-col gap-4">
-            <form className="flex justify-start items-center gap-4">
-              <Input placeholder="Message us" className="bg-white" />
-              <Button type="submit">Contact us</Button>
-            </form>
+            <QuickEnquiryForm id={data.id} type="service"/>
             <div>
               <h1 className="font-bold text-2xl my-2">{data?.title || ""}</h1>
               <div className="overflow-x-auto">
@@ -65,7 +62,7 @@ export default async function page({
           <h1 className="font-bold text-2xl my-2 text-center text-[#5a8ddc]">
             Contact us
           </h1>
-          <ServiceContact/>
+          <ServiceContact data={serviceNames}/>
         </div>
         <div>
           <h1 className="font-bold text-2xl my-2 text-center pt-2 text-gray-900">

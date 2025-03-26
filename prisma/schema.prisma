@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model HomePageQuickEnquiry {
+  id        String   @id @default(uuid())
+  name      String
+  productId String
+  email     String
+  phone     String
+  message   String
+  location  String
+  createdAt DateTime @default(now())
+}
+
+model ProductPageEnquiry {
+  id                String   @id @default(uuid())
+  productId         String
+  name             String
+  email            String
+  phone            String
+  quantity         Int
+  price            Decimal
+  requirementDetails String
+  createdAt        DateTime @default(now())
+}
+
+model ProductQuickEnquiry {
+  id        String   @id @default(uuid())
+  productId String
+  email     String
+  createdAt DateTime @default(now())
+}
+
+model ServiceQuickEnquiry {
+  id        String   @id @default(uuid())
+  serviceId String
+  email     String
+  createdAt DateTime @default(now())
+}
+
+model ServicePageEnquiry {
+  id        String   @id @default(uuid())
+  name      String
+  email     String
+  serviceId   String
+  details   String
+  phone     String
+  createdAt DateTime @default(now())
+}

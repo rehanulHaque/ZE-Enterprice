@@ -2,8 +2,10 @@ import { HomePageData } from "@/data";
 import { Phone } from "lucide-react";
 import Image from "next/image";
 import FindUsForm from "../Forms/FindUsForm";
+import { getProductNameAndId } from "@/lib/getData";
 
-export default function QuickEnquiry() {
+export default async function QuickEnquiry() {
+  const data = await getProductNameAndId()
   return (
     <div className="grid grid-cols-1 md:grid-cols-5 gap-8 max-w-5xl md:mx-auto mt-10 mx-8">
       {/* Left */}
@@ -26,7 +28,7 @@ export default function QuickEnquiry() {
       </div>
       {/* Right */}
       <div className="md:col-span-3 bg-[#f3f3f3] p-4 rounded-xl shadow-xl">
-        <FindUsForm/>
+        <FindUsForm data={data}/>
       </div>
     </div>
   );

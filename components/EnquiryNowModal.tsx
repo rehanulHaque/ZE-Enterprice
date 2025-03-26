@@ -3,7 +3,13 @@
 import React, { FormEvent, useState } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "./ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "./ui/dialog";
 import Image from "next/image";
 
 const ProductEnquiryModal = ({ productId, isOpen, onClose, image }: any) => {
@@ -15,8 +21,8 @@ const ProductEnquiryModal = ({ productId, isOpen, onClose, image }: any) => {
     e.preventDefault();
     sendEnquiry({ productId, name, phone, message });
     setInterval(() => {
-        onClose();
-    }, 3000)
+      onClose();
+    }, 3000);
   };
 
   const sendEnquiry = (enquiryData: any) => {
@@ -34,28 +40,57 @@ const ProductEnquiryModal = ({ productId, isOpen, onClose, image }: any) => {
           </DialogDescription>
         </DialogHeader>
         <div className="flex flex-col md:flex-row gap-4 md:gap-8">
-            {/* left */}
-            <div className="w-full md:w-1/2">
-                <Image src={image} height={300} width={300} alt="Product Image"/>
-            </div>
-            {/* right */}
-            <div className="w-full md:w-1/2">
-                <form onSubmit={handleSubmit} className="space-y-1">
-                    <div>
-                        <label htmlFor="name" className="text-sm font-medium">Name</label>
-                        <Input placeholder="Name" id="name" onChange={(e) => setName(e.target.value)} required value={name}/>
-                    </div>
-                    <div>
-                        <label htmlFor="phone" className="text-sm font-medium">Phone</label>
-                        <Input placeholder="Phone" id="phone" onChange={(e) => setPhone(e.target.value)} required value={phone}/>
-                    </div>
-                    <div>
-                        <label htmlFor="message" className="text-sm font-medium">Message</label>
-                        <Input placeholder="Message" id="message" onChange={(e) => setMessage(e.target.value)} required value={message}/>
-                    </div>
-                    <Button className="mt-2 w-full" type="submit">Enquiry Now</Button>
-                </form>
-            </div>
+          {/* left */}
+          <div className="w-full md:w-1/2">
+            <Image src={image} height={300} width={300} alt="Product Image" />
+          </div>
+          {/* right */}
+          <div className="w-full md:w-1/2">
+            <form onSubmit={handleSubmit} className="space-y-1">
+              <div>
+                <label htmlFor="name" className="text-sm font-medium">
+                  Name
+                </label>
+                <Input
+                autoComplete="off"
+                  placeholder="Name"
+                  id="name"
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                  value={name}
+                />
+              </div>
+              <div>
+                <label htmlFor="phone" className="text-sm font-medium">
+                  Phone
+                </label>
+                <Input
+                autoComplete="off"
+                  placeholder="Phone"
+                  id="phone"
+                  onChange={(e) => setPhone(e.target.value)}
+                  required
+                  value={phone}
+                />
+              </div>
+              <div>
+                <label htmlFor="message" className="text-sm font-medium">
+                  Message
+                </label>
+                <Input
+                autoComplete="off"
+                  placeholder="Message"
+                  id="message"
+                  onChange={(e) => setMessage(e.target.value)}
+                  required
+                  value={message}
+                />
+              </div>
+              <Button className="mt-2 w-full" type="submit">
+                Enquiry Now
+              </Button>
+            </form>
+          </div>
         </div>
       </DialogContent>
     </Dialog>
