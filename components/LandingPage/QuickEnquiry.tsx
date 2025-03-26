@@ -1,6 +1,3 @@
-import React from "react";
-import { Input } from "../ui/input";
-import { Button } from "../ui/button";
 import { HomePageData } from "@/data";
 import { Phone } from "lucide-react";
 import Image from "next/image";

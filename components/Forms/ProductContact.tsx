@@ -4,7 +4,7 @@ import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 
 export default function ProductContact({productId}: {productId: string | undefined}) {
-
+  console.log(productId)
   return (
     <form className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
           <div>

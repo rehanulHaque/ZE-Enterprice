@@ -3,7 +3,6 @@ import PageFooter from "@/components/PageFooter";
 import ServiceCarousel from "@/components/ServiceCarousel";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { getServicesForCarousel, getSingleService } from "@/lib/getData";
 import { RichText } from "@graphcms/rich-text-react-renderer";
 import Image from "next/image";
