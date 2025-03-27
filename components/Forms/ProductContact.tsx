@@ -5,7 +5,7 @@ import { Input } from "../ui/input";
 import { FieldValues, useForm } from "react-hook-form";
 import { ProductPageEnquiryTypes } from "@/types/ActionTypes";
 import { toast } from "sonner";
-import axios from "axios";
+import { axiosInstance } from "@/lib/axiosInstance";
 
 export default function ProductContact({
   productId,
@@ -30,9 +30,9 @@ export default function ProductContact({
       quantity: formData.quantity,
       requirementDetails: formData.requirementDetails,
     };
-    const response = await axios.post("/api/productenquiry", enquiryData);
-    if (!response.data.success) {
-      return toast.error(response.data.message);
+    const response = await axiosInstance.post("/productenquiry", enquiryData);
+    if (!response.data) {
+      return toast.error("Error Occured!");
     }
     toast.success(response.data.message);
     reset();

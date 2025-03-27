@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 import { FieldValues, useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { EnquiryData } from "@/types/ActionTypes";
-import axios from "axios";
+import { axiosInstance } from "@/lib/axiosInstance";
 
 export default function FindUsForm({
   data,
@@ -30,9 +30,9 @@ export default function FindUsForm({
       location: formData.location,
       message: formData.message,
     };
-    const response = await axios.post("/api/enquirydata", enquiryData);
-    if (!response.data.success) {
-      return toast.error(response.data.message);
+    const response = await axiosInstance.post("/enquiryData", enquiryData);
+    if (!response.data) {
+      return toast.error("Error Occured!");
     }
     toast.success(response.data.message);
     reset();

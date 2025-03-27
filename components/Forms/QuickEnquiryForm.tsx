@@ -5,7 +5,7 @@ import { Input } from "../ui/input";
 import { toast } from "sonner";
 import { ProductQuickEnquiryType, ServiceQuickEnquiryType } from "@/types/ActionTypes";
 import { FieldValues, useForm } from "react-hook-form";
-import axios from "axios";
+import { axiosInstance } from "@/lib/axiosInstance";
 
 export default function QuickEnquiryForm({id, type}: {type: "product" | "service",id: string | undefined}) {
   const {
@@ -22,10 +22,10 @@ export default function QuickEnquiryForm({id, type}: {type: "product" | "service
           email: formData.email,
           productId: id,
         };
-        const response = await axios.post("/api/productquickenquiry", enquiryData);
-    if (!response.data.success) {
-      return toast.error(response.data.message);
-    }
+        const response = await axiosInstance.post("/productquickenquiry", enquiryData);
+        if (!response.data) {
+          return toast.error("Error Occured!");
+        }
     toast.success(response.data.message);
         reset();
       };
@@ -35,7 +35,7 @@ export default function QuickEnquiryForm({id, type}: {type: "product" | "service
           email: formData.email,
           serviceId: id,
         };
-        const response = await axios.post("/api/servicequickenquiry", enquiryData);
+        const response = await axiosInstance.post("/servicequickenquiry", enquiryData);
     if (!response.data.success) {
       return toast.error(response.data.message);
     }

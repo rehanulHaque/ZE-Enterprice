@@ -6,7 +6,7 @@ import { Input } from "../ui/input";
 import { FieldValues, useForm } from "react-hook-form";
 import { ServicePageEnquiryTypes } from "@/types/ActionTypes";
 import { toast } from "sonner";
-import axios from "axios";
+import { axiosInstance } from "@/lib/axiosInstance";
 
 export default function ServiceContact({ data }: { data: { id: string; title: string }[] }) {
   const [selectedService, setSelectedService] = useState(""); // Stores the service title
@@ -20,9 +20,9 @@ export default function ServiceContact({ data }: { data: { id: string; title: st
       phone: formData.phone,
       serviceId: formData.serviceId, // Ensures correct ID is submitted
     };
-    const response = await axios.post("/api/serviceenquiry", enquiryData);
-    if (!response.data.success) {
-      return toast.error(response.data.message);
+    const response = await axiosInstance.post("/serviceenquiry", enquiryData);
+    if (!response.data) {
+      return toast.error("Error Occured!");
     }
     toast.success(response.data.message);
     reset();
