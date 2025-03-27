@@ -9,13 +9,15 @@ import { FieldValues, useForm } from "react-hook-form";
 import { serviceQuickEnquiry } from "@/actions/ServiceQuickEnquiry";
 
 export default function QuickEnquiryForm({id, type}: {type: "product" | "service",id: string | undefined}) {
-    if(!id) return toast.error("Error Occured")
-    const {
-        register,
+  const {
+    register,
         handleSubmit,
         formState: { isSubmitting },
         reset,
       } = useForm();
+    if(!id) {
+      return toast.error("Error Occured")
+    }
       const onSubmitProduct = async (formData: FieldValues) => {
         const enquiryData: ProductQuickEnquiryType = {
           email: formData.email,

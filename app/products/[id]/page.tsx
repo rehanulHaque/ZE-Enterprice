@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
 import ProductContact from "@/components/Forms/ProductContact";
 import QuickEnquiryForm from "@/components/Forms/QuickEnquiryForm";
