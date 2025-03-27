@@ -3,9 +3,9 @@ import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { FieldValues, useForm } from "react-hook-form";
-import { productPageEnquiry } from "@/actions/ProductPageEnquiry";
 import { ProductPageEnquiryTypes } from "@/types/ActionTypes";
 import { toast } from "sonner";
+import axios from "axios";
 
 export default function ProductContact({
   productId,
@@ -30,11 +30,11 @@ export default function ProductContact({
       quantity: formData.quantity,
       requirementDetails: formData.requirementDetails,
     };
-    const data = await productPageEnquiry(enquiryData);
-    if(data.type == 0){
-      return toast.error(data.data);
+    const response = await axios.post("/api/productenquiry", enquiryData);
+    if (!response.data.success) {
+      return toast.error(response.data.message);
     }
-    toast.success(data.data);
+    toast.success(response.data.message);
     reset();
   };
   return (

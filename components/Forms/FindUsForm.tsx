@@ -2,12 +2,16 @@
 import { useState } from "react";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
-import { HomePageQuickEnquiry } from "@/actions/HomePageEnquiry";
 import { FieldValues, useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { EnquiryData } from "@/types/ActionTypes";
+import axios from "axios";
 
-export default function FindUsForm({ data }: { data: { id: string; title: string }[] }) {
+export default function FindUsForm({
+  data,
+}: {
+  data: { id: string; title: string }[];
+}) {
   const [selectedProduct, setSelectedProduct] = useState(""); // Store the product title
   const {
     register,
@@ -26,11 +30,11 @@ export default function FindUsForm({ data }: { data: { id: string; title: string
       location: formData.location,
       message: formData.message,
     };
-    const response = await HomePageQuickEnquiry(enquiryData);
-    if (response.type === 0) {
-      return toast.error(response.data);
+    const response = await axios.post("/api/enquirydata", enquiryData);
+    if (!response.data.success) {
+      return toast.error(response.data.message);
     }
-    toast.success(response.data);
+    toast.success(response.data.message);
     reset();
     setSelectedProduct(""); // Clear input after submit
   };
@@ -60,37 +64,39 @@ export default function FindUsForm({ data }: { data: { id: string; title: string
       />
       <datalist id="productList">
         {data.map((pro) => (
-          <option value={pro.title} key={pro.id}>{pro.title}</option>
+          <option value={pro.title} key={pro.id}>
+            {pro.title}
+          </option>
         ))}
       </datalist>
 
       <Input
-      autoComplete="off"
+        autoComplete="off"
         placeholder="Name"
         className="bg-white"
         {...register("name", { required: true })}
       />
       <Input
-      autoComplete="off"
+        autoComplete="off"
         placeholder="Email"
         className="bg-white"
         {...register("email", { required: true })}
       />
       <Input
-      autoComplete="off"
+        autoComplete="off"
         placeholder="Location"
         className="bg-white"
         {...register("location", { required: true })}
       />
       <Input
-      autoComplete="off"
+        autoComplete="off"
         placeholder="Phone Number"
         type="number"
         className="bg-white"
         {...register("phone", { required: true })}
       />
       <Input
-      autoComplete="off"
+        autoComplete="off"
         placeholder="Leave a message for us"
         className="bg-white"
         {...register("message", { required: true })}

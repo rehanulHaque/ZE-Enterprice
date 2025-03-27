@@ -5,8 +5,8 @@ import { Textarea } from "../ui/textarea";
 import { Input } from "../ui/input";
 import { FieldValues, useForm } from "react-hook-form";
 import { ServicePageEnquiryTypes } from "@/types/ActionTypes";
-import { servicePageEnquiry } from "@/actions/ServicePageEnquiry";
 import { toast } from "sonner";
+import axios from "axios";
 
 export default function ServiceContact({ data }: { data: { id: string; title: string }[] }) {
   const [selectedService, setSelectedService] = useState(""); // Stores the service title
@@ -20,11 +20,11 @@ export default function ServiceContact({ data }: { data: { id: string; title: st
       phone: formData.phone,
       serviceId: formData.serviceId, // Ensures correct ID is submitted
     };
-    const response = await servicePageEnquiry(enquiryData);
-    if (response.type === 0) {
-      return toast.error(response.data);
+    const response = await axios.post("/api/serviceenquiry", enquiryData);
+    if (!response.data.success) {
+      return toast.error(response.data.message);
     }
-    toast.success(response.data);
+    toast.success(response.data.message);
     reset();
     setSelectedService(""); // Clear input after submit
   };
